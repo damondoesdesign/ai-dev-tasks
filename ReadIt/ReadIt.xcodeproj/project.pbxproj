@@ -7,92 +7,92 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A8E79C2CB3F45D4A7C5F24F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E066511A3D452DBB0EB427 /* AppState.swift */; };
-		8A8B9A2E15B345ED839577C0 /* SpeechPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54B31B68A3433EA0271BFF /* SpeechPlayer.swift */; };
-		120C6788522F4A89B7ECD7CE /* GlobalTriggerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0255FA8E7B149F7BBAD8CED /* GlobalTriggerMonitor.swift */; };
-		E7610450FE9F40D3898C6AD3 /* ReadItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C9A41AB304232B5D8B956 /* ReadItApp.swift */; };
-		7373199BDA7642CEB719A049 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885D9D8AAF3F46908AE436E4 /* KeychainStore.swift */; };
-		A0F1BF627ADE4A2FBEDBE784 /* SelectionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D530829A61404A80AE7C28 /* SelectionReader.swift */; };
-		3E9B7857C8A04E0094AC22BD /* ReadItServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97B1C7189E3438DA150BA66 /* ReadItServicesProvider.swift */; };
-		5DF686180FFF4709BE94C6AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332686F0F78C4632B14FE423 /* Theme.swift */; };
-		E375E2156C9A4542BE2B83A0 /* MenuBarExtraContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641380512DD458997989546 /* MenuBarExtraContent.swift */; };
-		01D8E68882DF4AF2A116B3E6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0902380E12074E2EB44F2B96 /* OnboardingView.swift */; };
-		807FBE5DFE5242D8930F512A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEBEDA08A84160B0A0F121 /* SettingsView.swift */; };
-		7C264185ACD44F8495D2B144 /* ReadItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB0634484084F8A83B5E3FB /* ReadItTests.swift */; };
-		C6B2C9F1397D4A849D73D388 /* ReadItCore in Frameworks */ = {isa = PBXBuildFile; productRef = C6B2C9F1397D4A849D73D388_PROD /* ReadItCore */; };
+		72D1A2B643E44693B6CD500E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7634200A85E416D99575548 /* AppState.swift */; };
+		CC1C82BB5A614DF3B5BFDDA9 /* SpeechPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD868CF559A459FAA8A03FF /* SpeechPlayer.swift */; };
+		C3B27792971A48229E68B4A4 /* GlobalTriggerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2179F82974896B7CB4034 /* GlobalTriggerMonitor.swift */; };
+		3C002B7759EC4214A19F66ED /* ReadItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D74AC12454190953B84A9 /* ReadItApp.swift */; };
+		51AF44479B594543A80B3947 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8952F38B7514192A2014062 /* KeychainStore.swift */; };
+		41E1570A96DD4D019C7400E4 /* SelectionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD573937889E4B3287849C21 /* SelectionReader.swift */; };
+		DCF8BA073A90418E81DE3D50 /* ReadItServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E02F8E9D7D5402BBCB3FF19 /* ReadItServicesProvider.swift */; };
+		C3945FA361134D39885A9CE5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDDACD0AD644CE962A9E1B /* Theme.swift */; };
+		3E8FC991EE5741B59F14A5D5 /* MenuBarExtraContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320C194908C4BAFB85A8A92 /* MenuBarExtraContent.swift */; };
+		B06B5696527E4CF39FF7DCEA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6719ADA192974D3F92EA4922 /* OnboardingView.swift */; };
+		B11B2488C7FC4225B2E30840 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA9D90CA3A47B58EB42F90 /* SettingsView.swift */; };
+		D37B851E6661425F92B19D8B /* ReadItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5872E4ABA243C2953F74B8 /* ReadItTests.swift */; };
+		51F966D0EBCC47F3B58D5292 /* ReadItCore in Frameworks */ = {isa = PBXBuildFile; productRef = 51F966D0EBCC47F3B58D5292_PROD /* ReadItCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7870373AAC2B4E21B249FC33 /* ReadIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6C38DBE13D44312961163E9 /* ReadItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FEC4D228F9D413396289BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53E066511A3D452DBB0EB427 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		3B54B31B68A3433EA0271BFF /* SpeechPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechPlayer.swift; sourceTree = "<group>"; };
-		C0255FA8E7B149F7BBAD8CED /* GlobalTriggerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTriggerMonitor.swift; sourceTree = "<group>"; };
-		909C9A41AB304232B5D8B956 /* ReadItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadItApp.swift; sourceTree = "<group>"; };
-		885D9D8AAF3F46908AE436E4 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
-		96D530829A61404A80AE7C28 /* SelectionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionReader.swift; sourceTree = "<group>"; };
-		C97B1C7189E3438DA150BA66 /* ReadItServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadItServicesProvider.swift; sourceTree = "<group>"; };
-		332686F0F78C4632B14FE423 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		F641380512DD458997989546 /* MenuBarExtraContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraContent.swift; sourceTree = "<group>"; };
-		0902380E12074E2EB44F2B96 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		B1EEBEDA08A84160B0A0F121 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		CBB0634484084F8A83B5E3FB /* ReadItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadItTests.swift; sourceTree = "<group>"; };
+		56648D1993F0487AB8FE2E86 /* ReadIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59E35480DA154CFABAAB1EE1 /* ReadItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB6901412D924CD08C04642C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7634200A85E416D99575548 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FFD868CF559A459FAA8A03FF /* SpeechPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio/SpeechPlayer.swift; sourceTree = "<group>"; };
+		24E2179F82974896B7CB4034 /* GlobalTriggerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input/GlobalTriggerMonitor.swift; sourceTree = "<group>"; };
+		D98D74AC12454190953B84A9 /* ReadItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadItApp.swift; sourceTree = "<group>"; };
+		C8952F38B7514192A2014062 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/KeychainStore.swift; sourceTree = "<group>"; };
+		DD573937889E4B3287849C21 /* SelectionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection/SelectionReader.swift; sourceTree = "<group>"; };
+		5E02F8E9D7D5402BBCB3FF19 /* ReadItServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/ReadItServicesProvider.swift; sourceTree = "<group>"; };
+		9BBDDACD0AD644CE962A9E1B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		9320C194908C4BAFB85A8A92 /* MenuBarExtraContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/MenuBarExtraContent.swift; sourceTree = "<group>"; };
+		6719ADA192974D3F92EA4922 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/OnboardingView.swift; sourceTree = "<group>"; };
+		E7BA9D90CA3A47B58EB42F90 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		6D5872E4ABA243C2953F74B8 /* ReadItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadItTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		34A430D85B8D4B56968A812C /* Frameworks */ = {
+		260D05C1448A4EBDBA8170CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6B2C9F1397D4A849D73D388 /* ReadItCore in Frameworks */,
+				51F966D0EBCC47F3B58D5292 /* ReadItCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4DBC7D7BFD4E4D4289F6F799 = {
+		150A405EBD26405380C603ED = {
 			isa = PBXGroup;
 			children = (
-				D8D82F8C69CE4221A8592896 /* ReadIt */,
-				6225598A210E4EF698B60251 /* ReadItTests */,
-				E09393138F204D9BA6FA64BF /* Products */,
+				8F9B3581B35E4072A2A84423 /* ReadIt */,
+				00654A544AE14C5490CDFAFA /* ReadItTests */,
+				4A19341DCFE54E07BC24E4B8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E09393138F204D9BA6FA64BF /* Products */ = {
+		4A19341DCFE54E07BC24E4B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7870373AAC2B4E21B249FC33 /* ReadIt.app */,
-				C6C38DBE13D44312961163E9 /* ReadItTests.xctest */,
+				56648D1993F0487AB8FE2E86 /* ReadIt.app */,
+				59E35480DA154CFABAAB1EE1 /* ReadItTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D8D82F8C69CE4221A8592896 /* ReadIt */ = {
+		8F9B3581B35E4072A2A84423 /* ReadIt */ = {
 			isa = PBXGroup;
 			children = (
-				53E066511A3D452DBB0EB427 /* AppState.swift */,
-				3B54B31B68A3433EA0271BFF /* SpeechPlayer.swift */,
-				C0255FA8E7B149F7BBAD8CED /* GlobalTriggerMonitor.swift */,
-				909C9A41AB304232B5D8B956 /* ReadItApp.swift */,
-				885D9D8AAF3F46908AE436E4 /* KeychainStore.swift */,
-				96D530829A61404A80AE7C28 /* SelectionReader.swift */,
-				C97B1C7189E3438DA150BA66 /* ReadItServicesProvider.swift */,
-				332686F0F78C4632B14FE423 /* Theme.swift */,
-				F641380512DD458997989546 /* MenuBarExtraContent.swift */,
-				0902380E12074E2EB44F2B96 /* OnboardingView.swift */,
-				B1EEBEDA08A84160B0A0F121 /* SettingsView.swift */,
-				0FEC4D228F9D413396289BA9 /* Info.plist */,
+				E7634200A85E416D99575548 /* AppState.swift */,
+				FFD868CF559A459FAA8A03FF /* SpeechPlayer.swift */,
+				24E2179F82974896B7CB4034 /* GlobalTriggerMonitor.swift */,
+				D98D74AC12454190953B84A9 /* ReadItApp.swift */,
+				C8952F38B7514192A2014062 /* KeychainStore.swift */,
+				DD573937889E4B3287849C21 /* SelectionReader.swift */,
+				5E02F8E9D7D5402BBCB3FF19 /* ReadItServicesProvider.swift */,
+				9BBDDACD0AD644CE962A9E1B /* Theme.swift */,
+				9320C194908C4BAFB85A8A92 /* MenuBarExtraContent.swift */,
+				6719ADA192974D3F92EA4922 /* OnboardingView.swift */,
+				E7BA9D90CA3A47B58EB42F90 /* SettingsView.swift */,
+				EB6901412D924CD08C04642C /* Info.plist */,
 			);
 			path = ReadIt;
 			sourceTree = "<group>";
 		};
-		6225598A210E4EF698B60251 /* ReadItTests */ = {
+		00654A544AE14C5490CDFAFA /* ReadItTests */ = {
 			isa = PBXGroup;
 			children = (
-				CBB0634484084F8A83B5E3FB /* ReadItTests.swift */,
+				6D5872E4ABA243C2953F74B8 /* ReadItTests.swift */,
 			);
 			path = ReadItTests;
 			sourceTree = "<group>";
@@ -100,13 +100,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52CFCF6BE734497484DD4309 /* ReadIt */ = {
+		700F435A8F5646FAA792090A /* ReadIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD70A083C17B4ABD9FE3061B /* Build configuration list for PBXNativeTarget "ReadIt" */;
+			buildConfigurationList = FED899A2624549E5B91248BE /* Build configuration list for PBXNativeTarget "ReadIt" */;
 			buildPhases = (
-				B7B0FE1121CC41169C3C9D8A /* Sources */,
-				34A430D85B8D4B56968A812C /* Frameworks */,
-				86F56A2086734CCA83AF7AC7 /* Resources */,
+				7CA9D0893B734C8BA9EA6665 /* Sources */,
+				260D05C1448A4EBDBA8170CE /* Frameworks */,
+				D70DC624C62D46F9BF0BBBAC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -114,17 +114,17 @@
 			);
 			name = ReadIt;
 			packageProductDependencies = (
-				C6B2C9F1397D4A849D73D388_PROD /* ReadItCore */,
+				51F966D0EBCC47F3B58D5292_PROD /* ReadItCore */,
 			);
 			productName = ReadIt;
-			productReference = 7870373AAC2B4E21B249FC33 /* ReadIt.app */;
+			productReference = 56648D1993F0487AB8FE2E86 /* ReadIt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		673C59D51DB941859F9A4D48 /* ReadItTests */ = {
+		B14016E28484464CA8CACD62 /* ReadItTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDBC9317769B48B1842AF2B2 /* Build configuration list for PBXNativeTarget "ReadItTests" */;
+			buildConfigurationList = DE363D9DD92D40AEB94E642C /* Build configuration list for PBXNativeTarget "ReadItTests" */;
 			buildPhases = (
-				CA9759D54C0748E88FF3E9A7 /* Sources */,
+				BDF76DC450ED4380A7D6D428 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -132,25 +132,25 @@
 			);
 			name = ReadItTests;
 			productName = ReadItTests;
-			productReference = C6C38DBE13D44312961163E9 /* ReadItTests.xctest */;
+			productReference = 59E35480DA154CFABAAB1EE1 /* ReadItTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		866ED08BF1E84C9786210AC8 /* Project object */ = {
+		6A09C1D947BC4D9886885F39 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					52CFCF6BE734497484DD4309 = {
+					700F435A8F5646FAA792090A = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = DF0CE7C9FE7647F6A24ACC01 /* Build configuration list for PBXProject "ReadIt" */;
+			buildConfigurationList = CD5FF014253946C29EEC7D94 /* Build configuration list for PBXProject "ReadIt" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,22 +158,22 @@
 				en,
 				Base,
 			);
-			mainGroup = 4DBC7D7BFD4E4D4289F6F799;
+			mainGroup = 150A405EBD26405380C603ED;
 			packageReferences = (
-				3753E05B780C4B909904D09A /* XCLocalSwiftPackageReference "ReadItCore" */,
+				0AA52D42016B4A3CBE242E10 /* XCLocalSwiftPackageReference "ReadItCore" */,
 			);
-			productRefGroup = E09393138F204D9BA6FA64BF /* Products */;
+			productRefGroup = 4A19341DCFE54E07BC24E4B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52CFCF6BE734497484DD4309 /* ReadIt */,
-				673C59D51DB941859F9A4D48 /* ReadItTests */,
+				700F435A8F5646FAA792090A /* ReadIt */,
+				B14016E28484464CA8CACD62 /* ReadItTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		86F56A2086734CCA83AF7AC7 /* Resources */ = {
+		D70DC624C62D46F9BF0BBBAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -183,36 +183,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B7B0FE1121CC41169C3C9D8A /* Sources */ = {
+		7CA9D0893B734C8BA9EA6665 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A8E79C2CB3F45D4A7C5F24F /* AppState.swift in Sources */,
-				8A8B9A2E15B345ED839577C0 /* SpeechPlayer.swift in Sources */,
-				120C6788522F4A89B7ECD7CE /* GlobalTriggerMonitor.swift in Sources */,
-				E7610450FE9F40D3898C6AD3 /* ReadItApp.swift in Sources */,
-				7373199BDA7642CEB719A049 /* KeychainStore.swift in Sources */,
-				A0F1BF627ADE4A2FBEDBE784 /* SelectionReader.swift in Sources */,
-				3E9B7857C8A04E0094AC22BD /* ReadItServicesProvider.swift in Sources */,
-				5DF686180FFF4709BE94C6AF /* Theme.swift in Sources */,
-				E375E2156C9A4542BE2B83A0 /* MenuBarExtraContent.swift in Sources */,
-				01D8E68882DF4AF2A116B3E6 /* OnboardingView.swift in Sources */,
-				807FBE5DFE5242D8930F512A /* SettingsView.swift in Sources */,
+				72D1A2B643E44693B6CD500E /* AppState.swift in Sources */,
+				CC1C82BB5A614DF3B5BFDDA9 /* SpeechPlayer.swift in Sources */,
+				C3B27792971A48229E68B4A4 /* GlobalTriggerMonitor.swift in Sources */,
+				3C002B7759EC4214A19F66ED /* ReadItApp.swift in Sources */,
+				51AF44479B594543A80B3947 /* KeychainStore.swift in Sources */,
+				41E1570A96DD4D019C7400E4 /* SelectionReader.swift in Sources */,
+				DCF8BA073A90418E81DE3D50 /* ReadItServicesProvider.swift in Sources */,
+				C3945FA361134D39885A9CE5 /* Theme.swift in Sources */,
+				3E8FC991EE5741B59F14A5D5 /* MenuBarExtraContent.swift in Sources */,
+				B06B5696527E4CF39FF7DCEA /* OnboardingView.swift in Sources */,
+				B11B2488C7FC4225B2E30840 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA9759D54C0748E88FF3E9A7 /* Sources */ = {
+		BDF76DC450ED4380A7D6D428 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C264185ACD44F8495D2B144 /* ReadItTests.swift in Sources */,
+				D37B851E6661425F92B19D8B /* ReadItTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		60C93D6742BB45B2890220A8 /* Debug */ = {isa = XCBuildConfiguration;
+		5899CC4FA84B4884BE89FBC1 /* Debug */ = {isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -225,7 +225,7 @@
 			};
 			name = Debug;
 		};
-		2749346BFAC547B486C94042 /* Release */ = {isa = XCBuildConfiguration;
+		D249A3A7B35A48389A53E192 /* Release */ = {isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -238,7 +238,7 @@
 			};
 			name = Release;
 		};
-		015851E6EA5A4083B193A4F8 /* Debug */ = {isa = XCBuildConfiguration;
+		DBD8B41E6B0142029263BB6D /* Debug */ = {isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -261,7 +261,7 @@
 			};
 			name = Debug;
 		};
-		521E49FA7D5C4EC2835475D4 /* Release */ = {isa = XCBuildConfiguration;
+		D03A0E1AB9DB495ABB2206B0 /* Release */ = {isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -284,7 +284,7 @@
 			};
 			name = Release;
 		};
-		A892357AF51841DD964BAC5D /* Debug */ = {isa = XCBuildConfiguration;
+		75132C982D034A97A7F99095 /* Debug */ = {isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -296,7 +296,7 @@
 			};
 			name = Debug;
 		};
-		BA472AE7C1CC482997A9C5C9 /* Release */ = {isa = XCBuildConfiguration;
+		544C54BEB1F44FC38A57FC0E /* Release */ = {isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -311,29 +311,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF0CE7C9FE7647F6A24ACC01 /* Build configuration list for PBXNativeTarget "ReadIt project" */ = {
+		CD5FF014253946C29EEC7D94 /* Build configuration list for PBXNativeTarget "ReadIt project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				60C93D6742BB45B2890220A8 /* Debug */,
-				2749346BFAC547B486C94042 /* Release */,
+				5899CC4FA84B4884BE89FBC1 /* Debug */,
+				D249A3A7B35A48389A53E192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD70A083C17B4ABD9FE3061B /* Build configuration list for PBXNativeTarget "ReadIt" */ = {
+		FED899A2624549E5B91248BE /* Build configuration list for PBXNativeTarget "ReadIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				015851E6EA5A4083B193A4F8 /* Debug */,
-				521E49FA7D5C4EC2835475D4 /* Release */,
+				DBD8B41E6B0142029263BB6D /* Debug */,
+				D03A0E1AB9DB495ABB2206B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDBC9317769B48B1842AF2B2 /* Build configuration list for PBXNativeTarget "ReadItTests" */ = {
+		DE363D9DD92D40AEB94E642C /* Build configuration list for PBXNativeTarget "ReadItTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A892357AF51841DD964BAC5D /* Debug */,
-				BA472AE7C1CC482997A9C5C9 /* Release */,
+				75132C982D034A97A7F99095 /* Debug */,
+				544C54BEB1F44FC38A57FC0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -341,19 +341,19 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		3753E05B780C4B909904D09A /* XCLocalSwiftPackageReference "ReadItCore" */ = {
+		0AA52D42016B4A3CBE242E10 /* XCLocalSwiftPackageReference "ReadItCore" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../ReadItCore;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C6B2C9F1397D4A849D73D388_PROD /* ReadItCore */ = {
+		51F966D0EBCC47F3B58D5292_PROD /* ReadItCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ReadItCore;
-			package = 3753E05B780C4B909904D09A /* XCLocalSwiftPackageReference "ReadItCore" */;
+			package = 0AA52D42016B4A3CBE242E10 /* XCLocalSwiftPackageReference "ReadItCore" */;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 866ED08BF1E84C9786210AC8 /* Project object */;
+	rootObject = 6A09C1D947BC4D9886885F39 /* Project object */;
 }

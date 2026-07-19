@@ -74,8 +74,20 @@ pbx += '''/* End PBXBuildFile section */
 pbx += f'\t\t{ids["app_product"]} /* ReadIt.app */ = {{isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadIt.app; sourceTree = BUILT_PRODUCTS_DIR; }};\n'
 pbx += f'\t\t{ids["test_product"]} /* ReadItTests.xctest */ = {{isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; }};\n'
 pbx += f'\t\t{ids["info_plist_ref"]} /* Info.plist */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; }};\n'
-for path in SOURCE_FILES + TEST_FILES:
-    pbx += f'\t\t{file_refs[path]} /* {os.path.basename(path)} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = {os.path.basename(path)}; sourceTree = "<group>"; }};\n'
+for path in SOURCE_FILES:
+    # Path relative to the ReadIt/ group (keeps Audio/, Views/, etc.).
+    rel_path = os.path.relpath(os.path.join(ROOT, path), APP).replace("\\", "/")
+    pbx += (
+        f'\t\t{file_refs[path]} /* {os.path.basename(path)} */ = '
+        f'{{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; '
+        f'path = {rel_path}; sourceTree = "<group>"; }};\n'
+    )
+for path in TEST_FILES:
+    pbx += (
+        f'\t\t{file_refs[path]} /* {os.path.basename(path)} */ = '
+        f'{{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; '
+        f'path = {os.path.basename(path)}; sourceTree = "<group>"; }};\n'
+    )
 pbx += '''/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

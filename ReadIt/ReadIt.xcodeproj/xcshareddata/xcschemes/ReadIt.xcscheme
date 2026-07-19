@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52CFCF6BE734497484DD4309"
+               BlueprintIdentifier = "700F435A8F5646FAA792090A"
                BuildableName = "ReadIt.app"
                BlueprintName = "ReadIt"
                ReferencedContainer = "container:ReadIt.xcodeproj">
@@ -43,7 +43,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52CFCF6BE734497484DD4309"
+            BlueprintIdentifier = "700F435A8F5646FAA792090A"
             BuildableName = "ReadIt.app"
             BlueprintName = "ReadIt"
             ReferencedContainer = "container:ReadIt.xcodeproj">
@@ -60,7 +60,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52CFCF6BE734497484DD4309"
+            BlueprintIdentifier = "700F435A8F5646FAA792090A"
             BuildableName = "ReadIt.app"
             BlueprintName = "ReadIt"
             ReferencedContainer = "container:ReadIt.xcodeproj">
