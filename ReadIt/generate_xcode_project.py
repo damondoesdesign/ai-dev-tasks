@@ -343,4 +343,89 @@ out_dir = os.path.join(ROOT, "ReadIt.xcodeproj")
 os.makedirs(out_dir, exist_ok=True)
 with open(os.path.join(out_dir, "project.pbxproj"), "w") as f:
     f.write(pbx)
-print(f"Generated project with {len(SOURCE_FILES)} source files")
+
+# Shared scheme so `xcodebuild -scheme ReadIt` works in CI.
+scheme_dir = os.path.join(out_dir, "xcshareddata", "xcschemes")
+os.makedirs(scheme_dir, exist_ok=True)
+scheme = f'''<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1500"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "{ids["main_target"]}"
+               BuildableName = "ReadIt.app"
+               BlueprintName = "ReadIt"
+               ReferencedContainer = "container:ReadIt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Release"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "{ids["main_target"]}"
+            BuildableName = "ReadIt.app"
+            BlueprintName = "ReadIt"
+            ReferencedContainer = "container:ReadIt.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "{ids["main_target"]}"
+            BuildableName = "ReadIt.app"
+            BlueprintName = "ReadIt"
+            ReferencedContainer = "container:ReadIt.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
+'''
+with open(os.path.join(scheme_dir, "ReadIt.xcscheme"), "w") as f:
+    f.write(scheme)
+
+print(f"Generated project with {len(SOURCE_FILES)} source files + shared scheme")

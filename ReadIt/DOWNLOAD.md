@@ -8,12 +8,14 @@ Building that package still needs a Mac **once** (or GitHub’s Mac builders). T
 
 1. Open the repo on GitHub: https://github.com/damondoesdesign/ai-dev-tasks
 2. Click the **Actions** tab
-3. Select workflow **Package Read It**
-4. Open the latest green run (or click **Run workflow**)
-5. At the bottom, download the artifact **ReadIt-macOS**
-6. Unzip it on your Mac
-7. Double-click **Read It.app**
+3. In the left sidebar, click **Package Read It**
+4. Open the latest run that shows a **green checkmark** (not a red X)
+5. Scroll to the bottom of that run page → **Artifacts**
+6. Click **ReadIt-macOS** to download the zip
+7. On your Mac: unzip → double-click **Read It.app**
 8. If macOS blocks it: right-click the app → **Open** → **Open**
+
+If the run is red / **Failure**, there is nothing to download yet (Artifacts shows `—`). Wait for a green run after a fix, or click **Re-run jobs** only after the fix is pushed.
 
 You do **not** need Xcode after that for normal use.
 
