@@ -32,20 +32,23 @@ final class AppState {
     private var didStart = false
 
     init() {
-        let settingsURL = (try? SettingsPersistence.defaultURL()) 
+        let settingsURL = (try? SettingsPersistence.defaultURL())
             ?? FileManager.default.temporaryDirectory.appendingPathComponent("readit-settings.json")
         let profilesURL = (try? ProfileStore.defaultApplicationSupportURL())
             ?? FileManager.default.temporaryDirectory.appendingPathComponent("readit-profiles.json")
-        settingsStore = SettingsPersistence(fileURL: settingsURL)
-        profileStore = ProfileStore(fileURL: profilesURL)
-        settings = (try? settingsStore.load()) ?? .default
-        profiles = (try? profileStore.load()) ?? []
-        needsOnboarding = KeychainStore.loadAPIKey() == nil
-        showOnboarding = needsOnboarding
-        triggerMonitor = GlobalTriggerMonitor(binding: settings.trigger)
-        player.onFinished = { [weak self] in
-            self?.status = .idle
-        }
+        let store = SettingsPersistence(fileURL: settingsURL)
+        let profilesPersistence = ProfileStore(fileURL: profilesURL)
+        let loadedSettings = (try? store.load()) ?? .default
+        let loadedProfiles = (try? profilesPersistence.load()) ?? []
+        let onboardingNeeded = KeychainStore.loadAPIKey() == nil
+
+        settingsStore = store
+        profileStore = profilesPersistence
+        settings = loadedSettings
+        profiles = loadedProfiles
+        needsOnboarding = onboardingNeeded
+        showOnboarding = onboardingNeeded
+        triggerMonitor = GlobalTriggerMonitor(binding: loadedSettings.trigger)
     }
 
     func start() {
@@ -56,6 +59,9 @@ final class AppState {
         NSApp.servicesProvider = ReadItServicesProvider.shared
         NSUpdateDynamicServices()
 
+        player.onFinished = { [weak self] in
+            self?.status = .idle
+        }
         triggerMonitor.onTrigger = { [weak self] in
             self?.readCurrentSelection()
         }
