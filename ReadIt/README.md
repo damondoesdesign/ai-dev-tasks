@@ -2,6 +2,8 @@
 
 Menu-bar utility that reads highlighted text aloud with **xAI Grok Text to Speech**.
 
+**Want a double-clickable app (no daily Xcode)?** See [DOWNLOAD.md](DOWNLOAD.md) — download the zip from GitHub Actions, or run `./ReadIt/scripts/package.sh` once on a Mac.
+
 ## What it does
 
 - **Right-click** highlighted text → **Services → Read It**

@@ -30,6 +30,8 @@ required_files=(
   "ReadIt/ReadIt/Input/GlobalTriggerMonitor.swift"
   "ReadIt/ReadIt/Services/ReadItServicesProvider.swift"
   "ReadIt/ReadIt.xcodeproj/project.pbxproj"
+  "ReadIt/scripts/package.sh"
+  "ReadIt/DOWNLOAD.md"
   "ReadItCore/Package.swift"
   "tasks/prd-read-it.md"
 )
