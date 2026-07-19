@@ -92,7 +92,7 @@ struct OnboardingView: View {
             Text("Paste your xAI API key")
                 .font(.system(.title2, design: .serif).weight(.semibold))
 
-            Text("It stays in your Mac’s Keychain. Read It never writes the key into settings profiles.")
+            Text("It stays in your Mac’s Keychain. Your xAI account also needs a credit balance (console.x.ai → Add credits) before validation can succeed.")
                 .font(.system(.body, design: .rounded))
                 .foregroundStyle(ReadItTheme.ink.opacity(0.7))
 
@@ -112,6 +112,12 @@ struct OnboardingView: View {
                 Text(errorMessage)
                     .font(.system(.footnote, design: .rounded))
                     .foregroundStyle(.red.opacity(0.85))
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Button("Open xAI console to add credits") {
+                    NSWorkspace.shared.open(OnboardingLinks.billingConsole)
+                }
+                .buttonStyle(.bordered)
             }
 
             HStack {

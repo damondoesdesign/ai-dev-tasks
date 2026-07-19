@@ -113,6 +113,25 @@ final class ReadItCoreTests: XCTestCase {
             XCTAssertEqual(error as? ReadItError, .invalidAPIKey)
         }
     }
+
+    func testTTSClientMapsForbiddenAsNeedsCredits() async {
+        let session = MockSession { request in
+            let response = HTTPURLResponse(
+                url: request.url!,
+                statusCode: 403,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+            return (Data("forbidden".utf8), response)
+        }
+        let client = TTSClient(session: session)
+        do {
+            _ = try await client.listVoices(apiKey: "key")
+            XCTFail("Expected error")
+        } catch {
+            XCTAssertEqual(error as? ReadItError, .needsCredits)
+        }
+    }
 }
 
 private struct MockSession: HTTPSessioning, @unchecked Sendable {

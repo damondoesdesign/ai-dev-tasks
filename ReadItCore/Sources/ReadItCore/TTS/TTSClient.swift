@@ -91,8 +91,23 @@ public struct TTSClient: Sendable {
         guard let http = response as? HTTPURLResponse else { return }
         guard !(200...299).contains(http.statusCode) else { return }
         let body = String(data: data, encoding: .utf8) ?? ""
-        if http.statusCode == 401 || http.statusCode == 403 {
+        let lowered = body.lowercased()
+        let looksLikeBilling =
+            http.statusCode == 402
+            || lowered.contains("credit")
+            || lowered.contains("billing")
+            || lowered.contains("payment")
+            || lowered.contains("insufficient")
+            || lowered.contains("balance")
+        if looksLikeBilling {
+            throw ReadItError.needsCredits
+        }
+        if http.statusCode == 401 {
             throw ReadItError.invalidAPIKey
+        }
+        // 403 is often "key ok but account can't use this yet" (credits / permissions).
+        if http.statusCode == 403 {
+            throw ReadItError.needsCredits
         }
         throw ReadItError.httpStatus(http.statusCode, String(body.prefix(240)))
     }

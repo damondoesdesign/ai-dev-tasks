@@ -21,6 +21,7 @@ public enum ReadItError: Error, Equatable, LocalizedError, Sendable {
     case textTooLong(count: Int, limit: Int)
     case missingAPIKey
     case invalidAPIKey
+    case needsCredits
     case httpStatus(Int, String)
     case decodingFailed
     case playbackFailed(String)
@@ -35,6 +36,8 @@ public enum ReadItError: Error, Equatable, LocalizedError, Sendable {
             return "Add your xAI API key in Settings."
         case .invalidAPIKey:
             return "That API key was rejected. Check it in Settings."
+        case .needsCredits:
+            return "Your xAI account needs credits. In console.x.ai, click Add credits, then try Validate & Save again."
         case .httpStatus(let code, let body):
             return "Speech request failed (\(code)): \(body)"
         case .decodingFailed:
