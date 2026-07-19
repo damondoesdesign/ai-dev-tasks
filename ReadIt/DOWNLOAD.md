@@ -12,10 +12,34 @@ Building that package still needs a Mac **once** (or GitHub’s Mac builders). T
 4. Open the latest run that shows a **green checkmark** (not a red X)
 5. Scroll to the bottom of that run page → **Artifacts**
 6. Click **ReadIt-macOS** to download the zip
-7. On your Mac: unzip → double-click **Read It.app**
-8. If macOS blocks it: right-click the app → **Open** → **Open**
+7. On your Mac: unzip → open **ReadIt.app** (see Gatekeeper steps below)
 
 If the run is red / **Failure**, there is nothing to download yet (Artifacts shows `—`). Wait for a green run after a fix, or click **Re-run jobs** only after the fix is pushed.
+
+### If macOS says “ReadIt Not Opened” / malware warning
+
+This is normal for an unsigned download (we haven’t Apple-notarized it yet). On recent macOS, **right-click → Open often does nothing useful** and only shows Move to Trash / Done.
+
+**Option A — System Settings (recommended)**
+
+1. Click **Done** on the warning (don’t Move to Trash)
+2. Open **System Settings → Privacy & Security**
+3. Scroll down to the **Security** section
+4. You should see a message that ReadIt was blocked
+5. Click **Open Anyway**
+6. Confirm again if asked
+
+**Option B — Terminal (clears the download quarantine flag)**
+
+1. Put `ReadIt.app` somewhere simple, e.g. your Desktop
+2. Open **Terminal** and run:
+
+```bash
+xattr -cr ~/Desktop/ReadIt.app
+open ~/Desktop/ReadIt.app
+```
+
+(If the app is in Downloads instead, use `~/Downloads/ReadIt.app`.)
 
 You do **not** need Xcode after that for normal use.
 
