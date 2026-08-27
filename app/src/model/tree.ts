@@ -1,4 +1,4 @@
-import type { DropPos, NodeLoc, PackList, PackNode, PackingStyle } from './types'
+import type { DropPos, NodeLoc, PackList, PackNode } from './types'
 
 export function now(): number {
   return Date.now()
@@ -309,8 +309,19 @@ export function focusedChildren(nodes: PackNode[], focusId: string | null): Pack
   return findById(nodes, focusId)?.children ?? nodes
 }
 
-export function applyStyle(nodes: PackNode[], id: string, style: PackingStyle | null): PackNode[] {
-  return updateNode(nodes, id, { style })
+export function indentNode(nodes: PackNode[], id: string): PackNode[] {
+  const loc = findNode(nodes, id)
+  if (!loc || loc.index === 0) return nodes
+  const siblings = loc.parentId ? findById(nodes, loc.parentId)?.children : nodes
+  const prev = siblings?.[loc.index - 1]
+  if (!prev) return nodes
+  return moveNode(nodes, id, prev.id, 'inside')
+}
+
+export function outdentNode(nodes: PackNode[], id: string): PackNode[] {
+  const loc = findNode(nodes, id)
+  if (!loc?.parentId) return nodes
+  return moveNode(nodes, id, loc.parentId, 'after')
 }
 
 export function recountTitle(list: PackList): string {

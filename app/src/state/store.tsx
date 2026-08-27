@@ -18,7 +18,9 @@ import {
   findById,
   findNode,
   focusedChildren,
+  indentNode,
   moveNode,
+  outdentNode,
   progress,
   removeNode,
   togglePacked,
@@ -114,6 +116,8 @@ type Action =
   | { type: 'deleteNode'; id: string }
   | { type: 'duplicateNode'; id: string }
   | { type: 'move'; id: string; targetId: string | null; pos: DropPos }
+  | { type: 'indent'; id: string }
+  | { type: 'outdent'; id: string }
   | { type: 'collapse'; id: string; collapsed: boolean }
   | { type: 'collapseAll'; collapsed: boolean }
   | { type: 'importNodes'; nodes: PackNode[]; mode: 'new' | 'root' | 'selected'; title?: string }
@@ -240,6 +244,20 @@ function reducer(state: State, action: Action): State {
         withList(doc, doc.activeListId, (l) => ({
           ...l,
           children: moveNode(l.children, action.id, action.targetId, action.pos),
+        })),
+      )
+    case 'indent':
+      return reduceDoc(state, (doc) =>
+        withList(doc, doc.activeListId, (l) => ({
+          ...l,
+          children: indentNode(l.children, action.id),
+        })),
+      )
+    case 'outdent':
+      return reduceDoc(state, (doc) =>
+        withList(doc, doc.activeListId, (l) => ({
+          ...l,
+          children: outdentNode(l.children, action.id),
         })),
       )
     case 'collapse':
@@ -393,6 +411,8 @@ function useStoreValue() {
       deleteNode: (id: string) => dispatch({ type: 'deleteNode', id }),
       duplicateNode: (id: string) => dispatch({ type: 'duplicateNode', id }),
       move: (id: string, targetId: string | null, pos: DropPos) => dispatch({ type: 'move', id, targetId, pos }),
+      indent: (id: string) => dispatch({ type: 'indent', id }),
+      outdent: (id: string) => dispatch({ type: 'outdent', id }),
       collapse: (id: string, collapsed: boolean) => dispatch({ type: 'collapse', id, collapsed }),
       collapseAll: (collapsed: boolean) => dispatch({ type: 'collapseAll', collapsed }),
       importText: (text: string, mode: 'new' | 'root' | 'selected', title?: string) => {

@@ -3,9 +3,11 @@ import {
   addChild,
   createNode,
   findNode,
+  indentNode,
   isDescendant,
   isFullyPacked,
   moveNode,
+  outdentNode,
   progress,
   removeNode,
   togglePacked,
@@ -68,6 +70,16 @@ describe('tree', () => {
     const tree = addChild([root], root.id, child)
     expect(findNode(tree, child.id)?.parentId).toBe(root.id)
     expect(removeNode(tree, child.id)[0].children).toHaveLength(0)
+  })
+
+  it('indents into the previous sibling and outdents back out', () => {
+    const a = createNode('Clothes')
+    const b = createNode('Shirt')
+    const nested = indentNode([a, b], b.id)
+    expect(nested).toHaveLength(1)
+    expect(nested[0].children[0].title).toBe('Shirt')
+    const out = outdentNode(nested, nested[0].children[0].id)
+    expect(out.map((n) => n.title)).toEqual(['Clothes', 'Shirt'])
   })
 
   it('filters unpacked leaves while keeping ancestor folders', () => {

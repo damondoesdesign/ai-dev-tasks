@@ -69,9 +69,11 @@ export function TreePane() {
       if (!live) return
       const dx = e.clientX - live.startX
       const dy = e.clientY - live.startY
-      if (!live.active && Math.hypot(dx, dy) < 5) return
+      if (!live.active && Math.hypot(dx, dy) < 6) return
       live.active = true
-      const hit = document.elementFromPoint(e.clientX, e.clientY)?.closest<HTMLElement>('[data-node-id]')
+      const hit = document
+        .elementFromPoint(e.clientX, e.clientY)
+        ?.closest<HTMLElement>('[data-node-id]')
       let pos: DropPos | null = null
       let targetId: string | null = null
       let lineTop: number | null = null
@@ -79,14 +81,14 @@ export function TreePane() {
         targetId = hit.dataset.nodeId
         const r = hit.getBoundingClientRect()
         const y = (e.clientY - r.top) / r.height
-        const x = (e.clientX - r.left) / r.width
-        if (x > 0.62 || (y > 0.28 && y < 0.72)) pos = 'inside'
-        else if (y < 0.5) {
+        if (y < 0.28) {
           pos = 'before'
           lineTop = r.top
-        } else {
+        } else if (y > 0.72) {
           pos = 'after'
           lineTop = r.bottom
+        } else {
+          pos = 'inside'
         }
       } else if (scroller.current) {
         const r = scroller.current.getBoundingClientRect()
@@ -114,10 +116,10 @@ export function TreePane() {
       dragLive.current = next
       setDrag(next)
     }
-    const up = () => {
+    const finish = (shouldDrop: boolean) => {
       const live = dragRef.current
       const snapshot = dragLive.current
-      if (live?.active && snapshot?.targetId && snapshot.pos) {
+      if (shouldDrop && live?.active && snapshot?.targetId && snapshot.pos) {
         moveFn.current(live.id, snapshot.targetId, snapshot.pos)
       }
       if (live?.longPress) window.clearTimeout(live.longPress)
@@ -125,25 +127,32 @@ export function TreePane() {
       dragLive.current = null
       setDrag(null)
     }
-    window.addEventListener('pointermove', move)
-    window.addEventListener('pointerup', up)
-    window.addEventListener('pointercancel', up)
+    const onUp = () => finish(true)
+    const onCancel = () => finish(false)
+    document.addEventListener('pointermove', move, true)
+    document.addEventListener('pointerup', onUp, true)
+    document.addEventListener('pointercancel', onCancel, true)
     return () => {
-      window.removeEventListener('pointermove', move)
-      window.removeEventListener('pointerup', up)
-      window.removeEventListener('pointercancel', up)
+      document.removeEventListener('pointermove', move, true)
+      document.removeEventListener('pointerup', onUp, true)
+      document.removeEventListener('pointercancel', onCancel, true)
     }
   }, [])
 
   const beginDrag = (e: ReactPointerEvent, node: PackNode, rowEl: HTMLElement) => {
-    e.preventDefault()
     e.stopPropagation()
+    const handle = e.currentTarget as HTMLElement
+    try {
+      handle.setPointerCapture(e.pointerId)
+    } catch {
+      /* capture is best-effort */
+    }
     const start = { x: e.clientX, y: e.clientY }
     dragRef.current = {
       id: node.id,
       startX: start.x,
       startY: start.y,
-      active: !phone,
+      active: false,
       width: rowEl.getBoundingClientRect().width,
       title: node.title,
     }
@@ -151,7 +160,7 @@ export function TreePane() {
       dragRef.current.longPress = window.setTimeout(() => {
         if (dragRef.current && dragRef.current.id === node.id) {
           dragRef.current.active = true
-          setDrag({
+          const next = {
             id: node.id,
             x: start.x,
             y: start.y,
@@ -160,7 +169,9 @@ export function TreePane() {
             pos: null,
             targetId: null,
             lineTop: null,
-          })
+          }
+          dragLive.current = next
+          setDrag(next)
         }
       }, 280)
     }
@@ -168,7 +179,7 @@ export function TreePane() {
 
   const add = () => {
     const title = draft.trim() || 'New item'
-    store.addNode(store.ui.selectedId && !phone ? store.ui.selectedId : store.ui.focusId, title)
+    store.addNode(store.ui.focusId, title)
     setDraft('')
   }
 
@@ -198,6 +209,7 @@ export function TreePane() {
         <button type="button" className="btn bezel-out desk-only" onClick={() => store.collapseAll(true)}>
           Fold
         </button>
+        <span className="hint desk-only">Drag :: into a row · Tab nests</span>
       </div>
       {(crumbs.length > 0 || phone) && (
         <div className="crumbs">
@@ -243,7 +255,10 @@ export function TreePane() {
                   drag?.targetId === node.id && drag.pos === 'inside' ? 'drop-in' : '',
                 ].join(' ')}
                 style={{ marginLeft: phone ? 0 : row.depth * 16 }}
-                onClick={() => store.select(node.id)}
+                onClick={() => {
+                  if (dragRef.current?.active) return
+                  store.select(node.id)
+                }}
                 onDoubleClick={() => store.openInspector(node.id)}
               >
                 <span className="stripe" style={{ background: color ?? '#3a3a3a' }} />
@@ -298,14 +313,15 @@ export function TreePane() {
                 >
                   i
                 </button>
-                <button
-                  type="button"
+                <span
                   className="grip"
-                  aria-label="Drag"
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Drag to nest or reorder"
                   onPointerDown={(e) => beginDrag(e, node, e.currentTarget.closest('[data-node-id]') as HTMLElement)}
                 >
                   ::
-                </button>
+                </span>
               </div>
             )
           })
@@ -320,7 +336,7 @@ export function TreePane() {
       >
         <input
           className="field bezel-in"
-          placeholder={store.ui.selectedId && !phone ? 'Add inside selected…' : 'Add item…'}
+          placeholder="Add item to this folder…"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           style={{ margin: 0, flex: 1 }}

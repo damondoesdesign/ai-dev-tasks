@@ -261,7 +261,7 @@ img {
 
 .row {
   display: grid;
-  grid-template-columns: 14px 22px 22px minmax(0, 1fr) auto auto 18px;
+  grid-template-columns: 14px 22px 22px minmax(0, 1fr) auto auto 28px;
   gap: 4px;
   align-items: center;
   min-height: var(--row);
@@ -336,9 +336,12 @@ img {
 
 .grip {
   cursor: grab;
-  color: var(--mid);
-  letter-spacing: -1px;
+  color: var(--fg);
+  letter-spacing: -2px;
   font-weight: 700;
+  touch-action: none;
+  width: 28px;
+  height: 28px;
 }
 
 .grip:active {

@@ -50,6 +50,11 @@ export function Shell() {
           onConfirm: () => store.deleteNode(id),
         })
       }
+      if (e.key === 'Tab' && store.ui.selectedId) {
+        e.preventDefault()
+        if (e.shiftKey) store.outdent(store.ui.selectedId)
+        else store.indent(store.ui.selectedId)
+      }
       if (e.key === 'Enter' && store.ui.selectedId) {
         store.openInspector(store.ui.selectedId)
       }
