@@ -2,6 +2,8 @@
 
 Personal packing list app for iPhone (iOS 17+). Plan trips by choosing bags, build a reusable item library, and pack with color tags and packing styles.
 
+> **Looking for the Mac + iPhone nested-list UI?** That’s the web app in [`/app`](../app) — `PACK//LIST`. Walkthrough: [`../app/WALKTHROUGH.md`](../app/WALKTHROUGH.md).
+
 ## Features (v1)
 
 - **Trips** — create from scratch or duplicate a previous trip
