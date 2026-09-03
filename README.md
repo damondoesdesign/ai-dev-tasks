@@ -190,3 +190,10 @@ Please feel free to:
 ---
 
 Happy AI-assisted developing!
+
+---
+
+## Side projects in this repo
+
+- **`tokyo/`**: a shared, offline-first Tokyo trip map and itinerary web app for iPhone (editor/viewer roles, Google Places lookup, Google Maps import, downloadable map). See [`tokyo/README.md`](tokyo/README.md).
+- **`app/`** and **`PackingList/`**: packing-list apps (web and SwiftUI).
