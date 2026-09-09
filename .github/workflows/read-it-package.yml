@@ -1,0 +1,59 @@
+name: Package Read It
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - cursor/read-it-a2bc
+      - main
+    paths:
+      - "ReadIt/**"
+      - "ReadItCore/**"
+      - ".github/workflows/read-it-package.yml"
+  pull_request:
+    paths:
+      - "ReadIt/**"
+      - "ReadItCore/**"
+      - ".github/workflows/read-it-package.yml"
+
+jobs:
+  package:
+    name: Build macOS .app zip
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select newest Xcode
+        run: |
+          set -euo pipefail
+          echo "Available Xcode apps:"
+          ls /Applications | grep -i xcode || true
+          # Prefer Xcode 16+ when present (Swift 6 / tools 5.9+ OK either way).
+          if [[ -d /Applications/Xcode_16.2.app ]]; then
+            sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+          elif [[ -d /Applications/Xcode_16.1.app ]]; then
+            sudo xcode-select -s /Applications/Xcode_16.1.app/Contents/Developer
+          elif [[ -d /Applications/Xcode_16.0.app ]]; then
+            sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer
+          elif [[ -d /Applications/Xcode.app ]]; then
+            sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+          else
+            # Fall back to whatever the image selected by default.
+            true
+          fi
+          xcodebuild -version
+          swift --version
+
+      - name: Package Read It
+        run: |
+          chmod +x ReadIt/scripts/package.sh
+          ./ReadIt/scripts/package.sh
+
+      - name: Upload ReadIt.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: ReadIt-macOS
+          path: ReadIt/dist/ReadIt.zip
+          if-no-files-found: error
+          retention-days: 14
